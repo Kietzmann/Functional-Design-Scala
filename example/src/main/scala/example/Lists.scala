@@ -23,7 +23,7 @@ object Lists {
     * @param xs A list of natural numbers
     * @return The sum of all elements in `xs`
     */
-  def sum(xs: List[Int]): Int = if (xs.isEmpty) 0 else xs.head + sum(xs.tail)
+  def sum(xs: List[Int]): Int = if (xs.isEmpty) 0 else xs.head.+(Lists.sum(xs.tail))
 
   /**
     * This method returns the largest element in a list of integers. If the
@@ -40,14 +40,14 @@ object Lists {
     */
   def max(xs: List[Int]): Int = {
     if (xs.isEmpty) throw new java.util.NoSuchElementException("THe list is empty")
-    recursiveMax(xs.head, xs.tail)
+    Lists.recursiveMax(xs.head, xs.tail)
   }
 
   def recursiveMax(head: Int, xs: List[Int]): Int = {
-    if (xs isEmpty) head
+    if (xs.isEmpty) head
     else {
-      val max = recursiveMax(head, xs.tail)
-      if (max > xs.head) max else xs.head
+      val max: Int = Lists.recursiveMax(head, xs.tail)
+      if (max.>(xs.head)) max else xs.head
     }
   }
 }
