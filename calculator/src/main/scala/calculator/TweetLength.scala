@@ -11,7 +11,7 @@ object TweetLength {
     Signal({
       val remainingChars = remainingCharsCount()
       if (remainingChars >= 15) "green"
-      else if (remainingChars > 0 && remainingChars < 15) "orange"
+      else if (remainingChars >= 0 && remainingChars < 15) "orange"
       else "red"
     })
   }
